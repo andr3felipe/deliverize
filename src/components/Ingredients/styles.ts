@@ -40,13 +40,28 @@ export const IngredientsContainer = styled.div`
     border: 1px solid ${(props) => props.theme.secondary};
     border-radius: 5px;
 
+    button:first-of-type {
+      //minus button align
+      padding-top: 4px;
+    }
+
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
-      font-size: 30px;
+      color: ${(props) => props.theme['button-red']};
       background-color: transparent;
 
       &:hover {
         cursor: pointer;
+        transform: scale(1.2);
+        transition: 0.2s ease-in-out;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: ${(props) => props.theme['button-gray']};
       }
     }
 

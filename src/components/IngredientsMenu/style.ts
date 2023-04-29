@@ -16,14 +16,15 @@ export const IngredientsMenuContainer = styled.div`
 
 export const IngredientsHead = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
   background-color: ${(props) => props.theme.yellow};
   width: 100%;
   padding: 8px 16px;
-  border-bottom: 1px solid #e8a634;
+  margin-bottom: 16px;
+
   p {
     font-weight: 500;
     font-size: 0.875rem;
@@ -48,17 +49,24 @@ export const IngredientsFooter = styled.div`
     // talher container
     display: flex;
     align-items: center;
+    justify-content: space-between;
     font-weight: 500;
+    height: 46px;
     padding: 8px 16px 16px 8px;
     max-width: 23.4375rem;
     width: 100%;
     font-size: 0.875rem;
     background-color: ${(props) => props.theme.yellow};
     flex: 1;
+
+    input {
+      height: 20px;
+      width: 20px;
+    }
   }
 `
 
-export const CutleryContainer = styled.div`
+export const AddButtonContainer = styled.div`
   display: flex;
   width: 100%;
 
@@ -77,12 +85,19 @@ export const CutleryContainer = styled.div`
     border: 1px solid ${(props) => props.theme.secondary};
 
     button {
-      width: 24px;
       border: none;
+      color: ${(props) => props.theme['button-red']};
       background-color: transparent;
 
       &:hover {
         cursor: pointer;
+        transform: scale(1.2);
+        transition: 0.2s ease-in-out;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: ${(props) => props.theme['button-gray']};
       }
     }
   }

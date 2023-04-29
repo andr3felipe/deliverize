@@ -1,8 +1,9 @@
+import { Minus, Plus } from '@phosphor-icons/react'
 import { CyclesContext, Ingredient, Item } from '../../contexts/CyclesContext'
 import { formatter } from '../../utils/formatter'
 import { Ingredients } from '../Ingredients'
 import {
-  CutleryContainer,
+  AddButtonContainer,
   IngredientsFooter,
   IngredientsHead,
   IngredientsMenuContainer,
@@ -25,7 +26,6 @@ export function IngredientsMenu({
     setIngredientsState,
     cutlery,
     setCutlery,
-    cart,
     setCart,
     count,
     setCount,
@@ -56,11 +56,32 @@ export function IngredientsMenu({
 
   function handleAddCart(productId: string) {
     const getProduct = products.filter((item) => item.id === productId)
+    const getIngredients = ingredientsState.filter((item) => item.count > 0)
 
-    const object = {
-      title: getProduct,
+    const object: any = {
+      title: getProduct[0].nm_product,
+      ingredients: getIngredients,
+      total,
+      cutlery,
+      count,
     }
+
+    if (object.title === 'Oferta Picanha Cheddar Bacon') {
+      object.ingredients.meat = '1 Carne 250gr'
+      object.ingredients.specialSauce = 'Molho Especial'
+    }
+    console.log(object)
+
+    setCart((state) => [...state, object])
   }
+
+  const maxIngredientsAllowed = ingredientsState.reduce(
+    (acc, item) => {
+      acc.count += item.count
+      return acc
+    },
+    { count: 0 },
+  )
 
   const ingredientsTotalPrice = ingredientsState.reduce(
     (acc, item) => {
@@ -77,9 +98,19 @@ export function IngredientsMenu({
   return (
     <IngredientsMenuContainer>
       <IngredientsHead>
-        {JSON.stringify(products)}
-        <p>Adicionar Ingredientes</p>
-        <span>Até {ingredients[0].max_itens} ingredientes.</span>
+        <div>
+          <p>Adicionar Ingredientes</p>
+          <span>Até {ingredients[0].max_itens} ingredientes.</span>
+        </div>
+        <div>
+          <span
+            style={{
+              color: maxIngredientsAllowed.count === 8 ? '#ED3237' : '',
+            }}
+          >
+            Ingredientes restantes: {8 - maxIngredientsAllowed.count}
+          </span>
+        </div>
       </IngredientsHead>
       {ingredientsState.map((item) => {
         return (
@@ -95,24 +126,31 @@ export function IngredientsMenu({
 
       <IngredientsFooter>
         <div>
-          <label htmlFor="cutlery"></label>
           <p>{ingredients[1].group}</p>
-          <input
-            onChange={handleCutleryChange}
-            checked={cutlery}
-            title="Precisa de talher?"
-            type="checkbox"
-            name="cutlery"
-            id=""
-          />
+          <label htmlFor="cutlery">
+            <input
+              onChange={handleCutleryChange}
+              checked={cutlery}
+              title="Precisa de talher?"
+              type="checkbox"
+              name="cutlery"
+              id=""
+            />
+          </label>
         </div>
-        <CutleryContainer>
+        <AddButtonContainer>
           <div>
-            <button onClick={handleProductCountMinus} disabled={count === 1}>
-              -
+            <button
+              title="Minus"
+              onClick={handleProductCountMinus}
+              disabled={count === 1}
+            >
+              <Minus size={18} weight="bold" />
             </button>
             <span>{count}</span>
-            <button onClick={handleProductCountPlus}>+</button>
+            <button title="Plus" onClick={handleProductCountPlus}>
+              <Plus size={18} weight="bold" />
+            </button>
           </div>
 
           <div>
@@ -120,7 +158,7 @@ export function IngredientsMenu({
               Adicionar {formatter.format(total)}
             </button>
           </div>
-        </CutleryContainer>
+        </AddButtonContainer>
       </IngredientsFooter>
     </IngredientsMenuContainer>
   )

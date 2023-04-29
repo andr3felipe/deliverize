@@ -2,14 +2,18 @@ import styled from 'styled-components'
 
 export const ProductContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   justify-content: center;
   padding: 24px 0px;
   gap: 24px;
   margin-bottom: 12px;
 
-  max-width: 37.3125rem;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
 
   img {
     max-width: 597px;
@@ -19,30 +23,45 @@ export const ProductContainer = styled.div`
   h1 {
     font-size: 1.75rem;
     font-weight: 500;
+    margin-bottom: 7px;
   }
 
   h3 {
     font-size: 1.25rem;
     font-weight: 400;
   }
+`
+
+export const ProductAlign = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+
+  @media (max-width: 1100px) {
+    align-items: center;
+  }
 
   > div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: center;
+    gap: 17px;
+  }
 
-    span {
-      line-height: 120%;
-      font-size: 2rem;
-    }
+  div > span {
+    line-height: 120%;
+    font-size: 2rem;
+  }
 
-    span:first-child {
-      color: ${(props) => props.theme.price};
+  span:first-child {
+    // descount price
+    color: ${(props) => props.theme.price};
 
-      ~ span {
-        text-decoration: line-through;
-      }
+    ~ span {
+      // normal price
+      text-decoration: line-through;
     }
   }
 `

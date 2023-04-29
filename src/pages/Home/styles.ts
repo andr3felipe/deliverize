@@ -11,9 +11,4 @@ export const HomeContainer = styled.main`
   gap: 7rem;
 
   margin-top: 24px;
-
-  @media (max-width: 1250px) {
-    flex-direction: column;
-    gap: 2rem;
-  }
 `

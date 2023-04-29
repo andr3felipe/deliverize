@@ -34,6 +34,8 @@ interface CyclesContextType {
   setCart: React.Dispatch<React.SetStateAction<IProduct[]>>
   count: number
   setCount: React.Dispatch<React.SetStateAction<number>>
+  search: string
+  setSearch: React.Dispatch<React.SetStateAction<string>>
   cutlery: boolean
   setCutlery: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -59,7 +61,11 @@ export function CyclesContextProvider({
   // carrinho
   const [cart, setCart] = useState<IProduct[]>([])
 
+  // quantidade de items (hamburger) para adicionar ao carrinho
   const [count, setCount] = useState<number>(1)
+
+  // Search Input
+  const [search, setSearch] = useState<string>('')
 
   return (
     <CyclesContext.Provider
@@ -74,6 +80,8 @@ export function CyclesContextProvider({
         setCart,
         count,
         setCount,
+        search,
+        setSearch,
       }}
     >
       {children}

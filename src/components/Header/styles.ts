@@ -50,11 +50,14 @@ export const UserAddressContainer = styled.div`
 `
 
 export const ShipAddressArrow = styled.div`
-  > div {
-    height: 10px;
-    width: 10px;
-    border-top: 4px solid ${(props) => props.theme['button-red']};
-    border-left: 4px solid ${(props) => props.theme['button-red']};
+  > button {
+    cursor: pointer;
+    border-right: 0;
+    border-bottom: 0;
+    height: 8px;
+    width: 8px;
+    border-top: 2px solid ${(props) => props.theme['button-red']};
+    border-left: 2px solid ${(props) => props.theme['button-red']};
     transform: rotate(225deg);
     margin-right: 12px;
   }
@@ -91,5 +94,32 @@ export const NavigationContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+  }
+
+  span:first-of-type {
+    position: relative;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-left: -39px;
+    margin-top: -33px;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    color: white;
+    border-radius: 8px;
+    background-color: ${(props) => props.theme.secondary};
+    font-size: 0.625rem;
+    letter-spacing: 0.2px;
+  }
+
+  @media (max-width: 920px) {
+    div {
+      display: none;
+    }
   }
 `

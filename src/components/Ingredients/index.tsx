@@ -2,6 +2,7 @@ import { CyclesContext } from '../../contexts/CyclesContext'
 import { formatter } from '../../utils/formatter'
 import { IngredientsContainer } from './styles'
 import { useContext } from 'react'
+import { Plus, Minus } from '@phosphor-icons/react'
 
 interface IngredinetsProps {
   id: number
@@ -54,12 +55,16 @@ export function Ingredients({ id, title, price, count }: IngredinetsProps) {
         <span>{formatter.format(price)}</span>
       </div>
       <div>
-        <button onClick={handleMinus} disabled={count === 0}>
-          -
+        <button title="Minus" onClick={handleMinus} disabled={count === 0}>
+          <Minus size={18} weight="bold" />
         </button>
         <span>{count}</span>
-        <button onClick={handlePlus} disabled={maxIngredientsAllowed.count > 7}>
-          +
+        <button
+          title="Plus"
+          onClick={handlePlus}
+          disabled={maxIngredientsAllowed.count > 7}
+        >
+          <Plus size={18} weight="bold" />
         </button>
       </div>
     </IngredientsContainer>
