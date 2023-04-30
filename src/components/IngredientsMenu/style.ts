@@ -12,6 +12,13 @@ export const IngredientsMenuContainer = styled.div`
 
   border: 1px solid ${(props) => props.theme['product-border']};
   border-radius: 8px;
+
+  @media (max-width: 600px) {
+    border: none;
+    font-size: 0.875rem;
+    max-width: 343px;
+    padding: 0;
+  }
 `
 
 export const IngredientsHead = styled.div`
@@ -22,7 +29,7 @@ export const IngredientsHead = styled.div`
   gap: 12px;
   background-color: ${(props) => props.theme.yellow};
   width: 100%;
-  padding: 8px 16px;
+  padding: 16px 16px 8px 16px;
   margin-bottom: 16px;
 
   p {
@@ -34,6 +41,10 @@ export const IngredientsHead = styled.div`
   span {
     font-size: 0.75rem;
     color: ${(props) => props.theme['yelow-darker']};
+  }
+
+  @media (max-width: 600px) {
+    max-width: calc(343px - 32px);
   }
 `
 export const IngredientsFooter = styled.div`
@@ -52,7 +63,7 @@ export const IngredientsFooter = styled.div`
     justify-content: space-between;
     font-weight: 500;
     height: 46px;
-    padding: 8px 16px 16px 8px;
+    padding: 8px 16px 16px 16px;
     max-width: 23.4375rem;
     width: 100%;
     font-size: 0.875rem;
@@ -62,6 +73,13 @@ export const IngredientsFooter = styled.div`
     input {
       height: 20px;
       width: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    max-width: 343px;
+    div:has(p) {
+      max-width: calc(343px - 32px);
     }
   }
 `
@@ -114,6 +132,12 @@ export const AddButtonContainer = styled.div`
       font-size: 0.875rem;
       letter-spacing: 0.33px;
       background-color: ${(props) => props.theme.secondary};
+    }
+  }
+
+  @media (max-width: 600px) {
+    :nth-child(2) {
+      max-width: 343px;
     }
   }
 `

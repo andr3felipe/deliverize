@@ -1,6 +1,6 @@
 import {
   HeaderContainer,
-  InputContainer,
+  LogoContainer,
   NavigationContainer,
   ShipAddressArrow,
   UserAddressContainer,
@@ -12,22 +12,18 @@ import deliverizeBox from '../../assets/deliverizeBox.png'
 import deliverize from '../../assets/deliverize.png'
 import { NavLink } from 'react-router-dom'
 import { CyclesContext } from '../../contexts/CyclesContext'
-import React, { useContext } from 'react'
+import { useContext } from 'react'
+import { SearchInput } from '../SearchInput'
 
 export function Header() {
-  const { cart, search, setSearch } = useContext(CyclesContext)
-
-  function handleSearchInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    e.preventDefault()
-    setSearch(e.target.value)
-  }
+  const { cart } = useContext(CyclesContext)
 
   return (
     <HeaderContainer>
-      <div>
+      <LogoContainer>
         <img src={deliverizeBox} alt="" />
         <img src={deliverize} alt="" />
-      </div>
+      </LogoContainer>
       <UserAddressContainer>
         <div>
           <span>Entrega:</span>
@@ -37,15 +33,9 @@ export function Header() {
           <button title="Show"></button>
         </ShipAddressArrow>
       </UserAddressContainer>
-      <InputContainer>
-        <input
-          onChange={(e) => handleSearchInputOnChange(e)}
-          value={search}
-          placeholder="Busque por estabelecimento ou produtos"
-          title="Buscar"
-          type="text"
-        />
-      </InputContainer>
+
+      <SearchInput />
+
       <NavigationContainer>
         <NavLink to="">
           <img src={loginIcon} alt="" />

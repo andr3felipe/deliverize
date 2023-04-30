@@ -39,8 +39,6 @@ export function IngredientsMenu({
     setIngredientsState(array)
   }, [setIngredientsState, ingredients])
 
-  console.log(ingredientsState)
-
   function handleCutleryChange() {
     setCutlery(!cutlery)
   }

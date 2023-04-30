@@ -69,4 +69,8 @@ export const IngredientsContainer = styled.div`
       margin-top: -5px;
     }
   }
+
+  @media (max-width: 600px) {
+    max-width: calc(343px - 16px);
+  }
 `

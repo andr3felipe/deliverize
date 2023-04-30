@@ -7,12 +7,19 @@ import { CyclesContext } from '../../contexts/CyclesContext'
 export function Home() {
   const { products, setProducts, search } = useContext(CyclesContext)
 
+  const handleFetch = async () => {
+    try {
+      const response = await api.get('/products')
+
+      setProducts(response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
-    api.get('/products').then((res) => {
-      const data = res.data
-      setProducts(data)
-    })
-  }, [setProducts])
+    handleFetch()
+  }, [])
 
   const filterBySearchInput = products.filter((item) =>
     item.nm_product.toLowerCase().includes(search.toLowerCase()),

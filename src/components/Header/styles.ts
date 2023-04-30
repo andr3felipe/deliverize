@@ -13,10 +13,18 @@ export const HeaderContainer = styled.header`
   background-color: ${(props) => props.theme.background};
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
   padding: 16px 40px;
+
+  @media (max-width: 800px) {
+    margin: 0 auto;
+  }
+
+  @media (max-width: 450px) {
+    max-height: 24px;
+  }
 `
 
 export const UserAddressContainer = styled.div`
-  max-width: 14.375rem;
+  max-width: calc(14.375rem - 16px);
   width: 100%;
   max-height: 2rem;
   background-color: white;
@@ -29,6 +37,10 @@ export const UserAddressContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 
   > div {
     display: flex;
@@ -62,28 +74,15 @@ export const ShipAddressArrow = styled.div`
     margin-right: 12px;
   }
 `
-export const InputContainer = styled.div`
-  display: flex;
-  flex: 1;
 
-  input {
-    flex: 1;
-    height: 3rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    color: ${(props) => props.theme['header-address']};
-
-    border: 1px solid ${(props) => props.theme.primary};
-
-    background-color: white;
-  }
-`
 export const NavigationContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2.125rem;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 
   a {
     color: ${(props) => props.theme.primary};
@@ -120,6 +119,28 @@ export const NavigationContainer = styled.div`
   @media (max-width: 920px) {
     div {
       display: none;
+    }
+  }
+`
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+
+  @media (max-width: 800px) {
+    margin: 0 auto;
+    flex: 0;
+  }
+
+  @media (max-width: 450px) {
+    img {
+      height: 32px;
+    }
+
+    img + img {
+      height: 28px;
     }
   }
 `
