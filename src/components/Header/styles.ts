@@ -23,6 +23,24 @@ export const HeaderContainer = styled.header`
   }
 `
 
+export const MenuMobile = styled.div`
+  @media (min-width: 800px) {
+    display: none;
+  }
+
+  svg {
+    margin-left: -30px;
+    color: ${(props) => props.theme['product-border']};
+    transition: 0.2s;
+
+    &:hover {
+      color: ${(props) => props.theme['button-red']};
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+`
+
 export const UserAddressContainer = styled.div`
   max-width: calc(14.375rem - 16px);
   width: 100%;
@@ -132,6 +150,7 @@ export const LogoContainer = styled.div`
   @media (max-width: 800px) {
     margin: 0 auto;
     flex: 0;
+    padding-right: 40px;
   }
 
   @media (max-width: 450px) {

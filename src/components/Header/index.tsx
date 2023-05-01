@@ -1,6 +1,7 @@
 import {
   HeaderContainer,
   LogoContainer,
+  MenuMobile,
   NavigationContainer,
   ShipAddressArrow,
   UserAddressContainer,
@@ -15,11 +16,16 @@ import { CyclesContext } from '../../contexts/CyclesContext'
 import { useContext } from 'react'
 import { SearchInput } from '../SearchInput'
 
+import { Menu } from '@mui/icons-material'
+
 export function Header() {
   const { cart } = useContext(CyclesContext)
 
   return (
     <HeaderContainer>
+      <MenuMobile>
+        <Menu />
+      </MenuMobile>
       <LogoContainer>
         <img src={deliverizeBox} alt="" />
         <img src={deliverize} alt="" />
