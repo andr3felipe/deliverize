@@ -7,9 +7,12 @@ import {
   IngredientsFooter,
   IngredientsHead,
   IngredientsMenuContainer,
+  InputContainer,
 } from './style'
 import { useContext, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+
+import { Radio } from '@mui/material'
 
 interface IngredientsMenuProps {
   ingredients: Ingredient[]
@@ -42,8 +45,8 @@ export function IngredientsMenu({
     setIngredientsState(array)
   }, [setIngredientsState, ingredients])
 
-  function handleCutleryChange() {
-    setCutlery(!cutlery)
+  function handleCutleryChange(boolean: boolean) {
+    setCutlery(boolean)
   }
 
   function handleProductCountPlus() {
@@ -136,17 +139,39 @@ export function IngredientsMenu({
       <IngredientsFooter>
         <div>
           <p>{ingredients[1].group}</p>
-          <label htmlFor="cutlery">
-            <input
-              onChange={handleCutleryChange}
-              checked={cutlery}
-              title="Precisa de talher?"
-              type="checkbox"
-              name="cutlery"
-              id=""
-            />
-          </label>
         </div>
+        <InputContainer>
+          <div>
+            <span>Sim</span>
+            <Radio
+              sx={{
+                color: '#FEBC10',
+                '&.Mui-checked': {
+                  color: '#FEBC10',
+                },
+              }}
+              onChange={() => handleCutleryChange(true)}
+              checked={cutlery}
+              name="cutlery"
+              value="true"
+            />
+          </div>
+          <div>
+            <span>Não</span>
+            <Radio
+              sx={{
+                color: '#FEBC10',
+                '&.Mui-checked': {
+                  color: '#FEBC10',
+                },
+              }}
+              onChange={() => handleCutleryChange(false)}
+              checked={cutlery === false}
+              name="cutlery"
+              value="false"
+            />
+          </div>
+        </InputContainer>
         <AddButtonContainer>
           <div>
             <button

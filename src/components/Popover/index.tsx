@@ -18,6 +18,8 @@ export const Popover = ({
 }: PopoverProps) => {
   const { showPopover } = useContext(CyclesContext)
 
+  console.log('render')
+
   return (
     <PopoverContainer variant={showPopover}>
       <div>

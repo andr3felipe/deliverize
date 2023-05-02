@@ -52,7 +52,6 @@ export const IngredientsFooter = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 21px;
 
   width: 25rem;
 
@@ -69,12 +68,6 @@ export const IngredientsFooter = styled.div`
     font-size: 0.875rem;
     background-color: ${(props) => props.theme.yellow};
     flex: 1;
-
-    input {
-      height: 20px;
-      width: 20px;
-      cursor: pointer;
-    }
   }
 
   @media (max-width: 600px) {
@@ -139,6 +132,28 @@ export const AddButtonContainer = styled.div`
   @media (max-width: 600px) {
     :nth-child(2) {
       max-width: 343px;
+    }
+  }
+`
+
+export const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 48px;
+
+  font-size: 0.875rem;
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(375px - 32px);
+
+    @media (min-width: 600px) {
+      width: 407px;
+      padding-left: 10px;
     }
   }
 `

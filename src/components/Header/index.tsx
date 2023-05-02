@@ -23,8 +23,6 @@ export function Header() {
   const { cart, toggleMenu, toggleCart, popOverState } =
     useContext(CyclesContext)
 
-  console.log(popOverState, 'popover')
-
   return (
     <HeaderContainer>
       <MenuMobile>

@@ -12,8 +12,6 @@ interface MenuProps {
 export const Cart = ({ children }: MenuProps) => {
   const { isCartOpen, toggleCart, cart } = useContext(CyclesContext)
 
-  console.log(cart)
-
   return (
     <>
       <Drawer
