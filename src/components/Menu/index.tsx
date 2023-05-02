@@ -14,9 +14,13 @@ import {
   ShoppingCartOutlined,
 } from '@mui/icons-material'
 import { CyclesContext } from '../../contexts/CyclesContext'
-import { useContext } from 'react'
+import { useContext, ReactNode } from 'react'
 
-export function Menu({ children }) {
+interface MenuProps {
+  children?: ReactNode
+}
+
+export const Menu = ({ children }: MenuProps) => {
   const { isMenuOpen, toggleMenu } = useContext(CyclesContext)
 
   return (
@@ -78,7 +82,7 @@ export function Menu({ children }) {
                 borderRadius: '20px',
               }}
             />
-            <SearchInput />
+            <SearchInput variant="inputMobile" />
           </List>
         </Box>
       </Drawer>

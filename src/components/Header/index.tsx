@@ -17,6 +17,7 @@ import { useContext } from 'react'
 import { SearchInput } from '../SearchInput'
 
 import { Menu } from '@mui/icons-material'
+import { Popover } from '../Popover'
 
 export function Header() {
   const { cart, toggleMenu } = useContext(CyclesContext)
@@ -53,6 +54,15 @@ export function Header() {
           {cart.length > 0 ? <div>{cart.length}</div> : null}
         </NavLink>
       </NavigationContainer>
+      <Popover
+        title="Oferta Cheddar Bacon"
+        ingredients={[
+          '1 Carne',
+          '2 Queijo Cheddar',
+          '1Bacon',
+          'Molho Especial',
+        ]}
+      />
     </HeaderContainer>
   )
 }

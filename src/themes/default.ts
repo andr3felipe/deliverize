@@ -11,5 +11,6 @@ export const defaultTheme = {
   'yelow-darker': '#E49700',
   'product-border': '#686868',
 
+  'popover-background': '#F8F8F8',
   'popover-title': '#BC2E31',
 }

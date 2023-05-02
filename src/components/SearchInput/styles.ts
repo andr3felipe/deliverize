@@ -1,12 +1,17 @@
 import styled from 'styled-components'
 
-export const InputContainer = styled.div`
+export type StyleTypes = {
+  variant?: string
+}
+
+export const InputContainer = styled.div<StyleTypes>`
   display: flex;
   flex: 1;
   max-width: 354px;
 
   @media (max-width: 800px) {
-    display: none;
+    display: ${(props) => (props.variant === 'inputMobile' ? 'block' : 'none')};
+    padding: ${(props) => (props.variant === 'inputMobile' ? '0px 4px' : null)};
   }
 
   input {

@@ -2,7 +2,11 @@ import React, { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 import { InputContainer } from './styles'
 
-export function SearchInput() {
+interface SearchInputProps {
+  variant?: string
+}
+
+export const SearchInput = ({ variant }: SearchInputProps) => {
   const { search, setSearch } = useContext(CyclesContext)
 
   function handleSearchInputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -10,7 +14,7 @@ export function SearchInput() {
     setSearch(e.target.value)
   }
   return (
-    <InputContainer>
+    <InputContainer variant={variant}>
       <input
         onChange={(e) => handleSearchInputOnChange(e)}
         value={search}
