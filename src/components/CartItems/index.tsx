@@ -36,7 +36,7 @@ export const CartItems = ({
               {ingredients.map((item) => {
                 return (
                   <li key={item.nm_item}>
-                    {item.count}x {item.nm_item}
+                    {item.count} x {item.nm_item}
                   </li>
                 )
               })}

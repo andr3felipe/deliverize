@@ -31,6 +31,7 @@ export function IngredientsMenu({
     count,
     setCount,
     products,
+    togglePopover,
   } = useContext(CyclesContext)
 
   useEffect(() => {
@@ -150,7 +151,12 @@ export function IngredientsMenu({
           </div>
 
           <div>
-            <button onClick={() => handleAddCart(productId)}>
+            <button
+              onClick={() => {
+                handleAddCart(productId)
+                togglePopover()
+              }}
+            >
               Adicionar {formatter.format(total)}
             </button>
           </div>

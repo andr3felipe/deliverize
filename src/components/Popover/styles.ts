@@ -13,7 +13,8 @@ export const PopoverContainer = styled.div`
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 3px;
 
-  @media (min-width: 1290px) {
+  @media (min-width: 1285px) {
+    margin-right: 50px;
   }
 
   @media (max-width: 800px) {
@@ -24,7 +25,6 @@ export const PopoverContainer = styled.div`
     content: '';
     position: relative;
     width: 17px;
-    background-color: black;
     height: 15px;
     bottom: 168px;
     left: 106px;
@@ -39,6 +39,8 @@ export const PopoverContainer = styled.div`
     padding: 9px 9px 5px 9px;
     border-radius: 4px 4px 0 0;
   }
+
+  display: ${(props) => (props.variant === true ? 'block' : 'none')};
 `
 
 export const CardHead = styled.div`

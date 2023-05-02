@@ -15,13 +15,14 @@ import {
 } from '@mui/icons-material'
 import { CyclesContext } from '../../contexts/CyclesContext'
 import { useContext, ReactNode } from 'react'
+import { CartCount } from './styles'
 
 interface MenuProps {
   children?: ReactNode
 }
 
 export const Menu = ({ children }: MenuProps) => {
-  const { isMenuOpen, toggleMenu, toggleCart } = useContext(CyclesContext)
+  const { isMenuOpen, toggleMenu, toggleCart, cart } = useContext(CyclesContext)
 
   return (
     <>
@@ -74,6 +75,7 @@ export const Menu = ({ children }: MenuProps) => {
             >
               <ListItemIcon>
                 <ShoppingCartOutlined sx={{ fontSize: 30, color: '#ED3237' }} />
+                {cart.length > 0 ? <CartCount>{cart.length}</CartCount> : null}
               </ListItemIcon>
               <ListItemText
                 sx={{ color: '#ED3237', marginLeft: '-15px' }}

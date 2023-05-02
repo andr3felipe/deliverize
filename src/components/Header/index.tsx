@@ -59,7 +59,7 @@ export function Header() {
         ingredients={[
           '1 Carne',
           '2 Queijo Cheddar',
-          '1Bacon',
+          '1 Bacon',
           'Molho Especial',
         ]}
       />

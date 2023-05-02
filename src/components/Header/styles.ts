@@ -113,10 +113,6 @@ export const NavigationContainer = styled.div`
     gap: 10px;
   }
 
-  span:first-of-type {
-    position: relative;
-  }
-
   div {
     display: flex;
     align-items: center;
