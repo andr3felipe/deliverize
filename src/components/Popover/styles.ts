@@ -26,8 +26,8 @@ export const PopoverContainer = styled.div`
     position: absolute;
     width: 17px;
     height: 15px;
-    bottom: 98px;
-    left: 106px;
+    margin-left: calc(100% / 2 - 11px);
+    margin-top: -194px;
     transform: rotate(45deg);
     background-color: ${(props) => props.theme['yelow-darker']};
   }
