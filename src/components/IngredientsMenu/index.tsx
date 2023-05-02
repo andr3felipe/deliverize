@@ -32,6 +32,7 @@ export function IngredientsMenu({
     setCount,
     products,
     togglePopover,
+    setPopOverState,
   } = useContext(CyclesContext)
 
   useEffect(() => {
@@ -67,6 +68,17 @@ export function IngredientsMenu({
       total,
       cutlery,
       count,
+    }
+
+    setPopOverState(object)
+
+    if (object.title === 'Oferta Picanha Cheddar Bacon') {
+      object.ingredients[4] = { id: 5, count: 1, nm_item: 'Carne 250gr' }
+      object.ingredients[5] = {
+        id: 6,
+        count: 1,
+        nm_item: 'Molho Especial',
+      }
     }
 
     setCart((state) => [...state, object])

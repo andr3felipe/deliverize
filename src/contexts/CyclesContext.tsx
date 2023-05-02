@@ -43,7 +43,8 @@ export interface Cart {
 }
 
 interface CyclesContextType {
-  popOverState: Cart[]
+  setPopOverState: React.Dispatch<React.SetStateAction<Cart>>
+  popOverState: Cart
   showPopover: boolean
   togglePopover: () => void
   isMenuOpen: boolean
@@ -98,7 +99,7 @@ export function CyclesContextProvider({
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
 
   // popOverState
-  const [popOverState, setPopOverState] = useState<Cart[]>([])
+  const [popOverState, setPopOverState] = useState<Cart>({} as Cart)
 
   // show or hide popover
   const [showPopover, setShowPopOver] = useState<boolean>(false)
@@ -113,20 +114,6 @@ export function CyclesContextProvider({
 
   function togglePopover() {
     setShowPopOver(true)
-    setPopOverState([
-      {
-        count: 2,
-        cutlery: true,
-        id: '123123123',
-        title: 'Melhor hamburger',
-        total: 95.43,
-        ingredients: [
-          { id: 2, nm_item: 'Cebola Crispy', vl_item: 1.5, count: 1 },
-          { id: 3, nm_item: 'Molho Cheddar', vl_item: 3.5, count: 1 },
-          { id: 4, nm_item: 'Molho de Picanha', vl_item: 3.5, count: 1 },
-        ],
-      },
-    ])
 
     setTimeout(() => {
       setShowPopOver(false)
@@ -136,6 +123,7 @@ export function CyclesContextProvider({
   return (
     <CyclesContext.Provider
       value={{
+        setPopOverState,
         showPopover,
         popOverState,
         togglePopover,

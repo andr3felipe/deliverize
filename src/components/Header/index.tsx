@@ -20,7 +20,10 @@ import { Menu } from '@mui/icons-material'
 import { Popover } from '../Popover'
 
 export function Header() {
-  const { cart, toggleMenu, toggleCart } = useContext(CyclesContext)
+  const { cart, toggleMenu, toggleCart, popOverState } =
+    useContext(CyclesContext)
+
+  console.log(popOverState, 'popover')
 
   return (
     <HeaderContainer>
@@ -55,13 +58,10 @@ export function Header() {
         </NavLink>
       </NavigationContainer>
       <Popover
-        title="Oferta Cheddar Bacon"
-        ingredients={[
-          '1 Carne',
-          '2 Queijo Cheddar',
-          '1 Bacon',
-          'Molho Especial',
-        ]}
+        count={popOverState.count}
+        title={popOverState.title}
+        ingredients={popOverState.ingredients}
+        cutlery={popOverState.cutlery}
       />
     </HeaderContainer>
   )

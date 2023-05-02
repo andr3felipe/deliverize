@@ -14,7 +14,7 @@ export const PopoverContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 3px;
 
   @media (min-width: 1285px) {
-    margin-right: 50px;
+    margin-right: calc(100% / 2 - 640px);
   }
 
   @media (max-width: 800px) {
@@ -23,10 +23,10 @@ export const PopoverContainer = styled.div`
 
   &:after {
     content: '';
-    position: relative;
+    position: absolute;
     width: 17px;
     height: 15px;
-    bottom: 168px;
+    bottom: 98px;
     left: 106px;
     transform: rotate(45deg);
     background-color: ${(props) => props.theme['yelow-darker']};
@@ -48,6 +48,9 @@ export const CardHead = styled.div`
   font-weight: 700;
   font-size: 0.875rem;
   padding: 0 11px 0 11px;
+
+  margin-top: 6px;
+  margin-bottom: 6px;
 `
 
 export const CardBody = styled.div`
@@ -57,5 +60,10 @@ export const CardBody = styled.div`
   li {
     margin-left: 23px;
     padding-top: 2px;
+  }
+
+  :last-of-type p {
+    font-weight: 500;
+    margin-top: 6px;
   }
 `
