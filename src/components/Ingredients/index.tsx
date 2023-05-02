@@ -52,7 +52,7 @@ export function Ingredients({ id, title, price, count }: IngredinetsProps) {
     <IngredientsContainer>
       <div>
         <p>{title}</p>
-        <span>{formatter.format(price)}</span>
+        <span>+ {formatter.format(price)}</span>
       </div>
       <div>
         <button title="Minus" onClick={handleMinus} disabled={count === 0}>

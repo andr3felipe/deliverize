@@ -73,6 +73,7 @@ export const IngredientsFooter = styled.div`
     input {
       height: 20px;
       width: 20px;
+      cursor: pointer;
     }
   }
 
