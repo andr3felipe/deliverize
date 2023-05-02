@@ -59,4 +59,35 @@ export const CartBody = styled.div`
     }
   }
 `
-export const CartFooter = styled.div``
+export const CartFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  strong {
+    color: black;
+  }
+
+  p {
+    color: ${(props) => props.theme.secondary};
+  }
+  button {
+    margin-top: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    border: 0;
+
+    border-radius: 4px;
+    letter-spacing: 0.33px;
+
+    background-color: ${(props) => props.theme['yelow-darker']};
+    transition: 0.2s ease-in-out;
+    font-weight: 500;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+`

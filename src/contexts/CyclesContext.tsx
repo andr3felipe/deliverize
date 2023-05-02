@@ -43,6 +43,7 @@ export interface Cart {
 }
 
 interface CyclesContextType {
+  removeItemFromCart: () => void
   setPopOverState: React.Dispatch<React.SetStateAction<Cart>>
   popOverState: Cart
   showPopover: boolean
@@ -104,6 +105,10 @@ export function CyclesContextProvider({
   // show or hide popover
   const [showPopover, setShowPopOver] = useState<boolean>(false)
 
+  function removeItemFromCart(id: string) {
+    setCart((state) => state.filter((item) => item.id !== id))
+  }
+
   function toggleMenu() {
     setIsMenuOpen((state) => !state)
   }
@@ -123,6 +128,7 @@ export function CyclesContextProvider({
   return (
     <CyclesContext.Provider
       value={{
+        removeItemFromCart,
         setPopOverState,
         showPopover,
         popOverState,

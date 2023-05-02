@@ -7,8 +7,9 @@ import {
 } from './styles'
 import hamburger from '../../assets/hamburger.svg'
 import { formatter } from '../../utils/formatter'
+import { useContext } from 'react'
 
-import { Cart } from '../../contexts/CyclesContext'
+import { Cart, CyclesContext } from '../../contexts/CyclesContext'
 
 export const CartItems = ({
   title,
@@ -19,6 +20,8 @@ export const CartItems = ({
   variant,
   total,
 }: Cart) => {
+  const { removeItemFromCart } = useContext(CyclesContext)
+
   return (
     <>
       <CartContainer>
@@ -47,6 +50,13 @@ export const CartItems = ({
             <p>
               <strong>Total:</strong> {formatter.format(total)}
             </p>
+            <button
+              type="button"
+              title="remover"
+              onClick={() => removeItemFromCart(id)}
+            >
+              Remover
+            </button>
           </CartFooter>
         </CartAlign>
       </CartContainer>
