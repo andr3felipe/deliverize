@@ -4,7 +4,7 @@ import { defaultTheme } from './themes/default'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { CyclesContextProvider } from './contexts/CyclesContext'
-import { SideMenu } from './components/SideMenu'
+import { Menu } from './components/Menu'
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <BrowserRouter>
           <CyclesContextProvider>
-            <SideMenu>
+            <Menu>
               <Router />
-            </SideMenu>
+            </Menu>
           </CyclesContextProvider>
         </BrowserRouter>
 

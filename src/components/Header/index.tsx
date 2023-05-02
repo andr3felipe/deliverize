@@ -19,12 +19,12 @@ import { SearchInput } from '../SearchInput'
 import { Menu } from '@mui/icons-material'
 
 export function Header() {
-  const { cart } = useContext(CyclesContext)
+  const { cart, toggleMenu } = useContext(CyclesContext)
 
   return (
     <HeaderContainer>
       <MenuMobile>
-        <Menu />
+        <Menu onClick={toggleMenu} />
       </MenuMobile>
       <LogoContainer>
         <img src={deliverizeBox} alt="" />

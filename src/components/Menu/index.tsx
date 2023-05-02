@@ -1,12 +1,10 @@
 import {
   Drawer,
-  useTheme,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Divider,
-  useMediaQuery,
 } from '@mui/material'
 import { Box } from '@mui/system'
 import { SearchInput } from '../SearchInput'
@@ -15,31 +13,29 @@ import {
   AccountCircleOutlined,
   ShoppingCartOutlined,
 } from '@mui/icons-material'
+import { CyclesContext } from '../../contexts/CyclesContext'
+import { useContext } from 'react'
 
-export function SideMenu({ children }) {
-  const theme = useTheme()
-  const smDown = useMediaQuery(theme.breakpoints.down(800))
+export function Menu({ children }) {
+  const { isMenuOpen, toggleMenu } = useContext(CyclesContext)
 
   return (
     <>
-      <Drawer open={false} variant="temporary">
+      <Drawer open={isMenuOpen} variant="temporary" onClose={toggleMenu}>
         <Box display="flex" flexDirection="column">
           <List
             component="nav"
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '4px',
-              paddingLeft: '4px',
-              paddingRight: '4px',
             }}
           >
             <ListItemButton>
               <ListItemIcon>
-                <HomeOutlined sx={{ fontSize: 35, color: '#ED3237' }} />
+                <HomeOutlined sx={{ fontSize: 30, color: '#ED3237' }} />
               </ListItemIcon>
               <ListItemText
-                sx={{ color: '#ED3237' }}
+                sx={{ color: '#ED3237', marginLeft: '-15px' }}
                 primary="Página inicial"
               />
             </ListItemButton>
@@ -52,10 +48,13 @@ export function SideMenu({ children }) {
             <ListItemButton>
               <ListItemIcon>
                 <AccountCircleOutlined
-                  sx={{ fontSize: 35, color: '#ED3237' }}
+                  sx={{ fontSize: 30, color: '#ED3237' }}
                 />
               </ListItemIcon>
-              <ListItemText sx={{ color: '#ED3237' }} primary="Entrar" />
+              <ListItemText
+                sx={{ color: '#ED3237', marginLeft: '-15px' }}
+                primary="Entrar"
+              />
             </ListItemButton>
             <Divider
               sx={{
@@ -65,9 +64,12 @@ export function SideMenu({ children }) {
             />
             <ListItemButton>
               <ListItemIcon>
-                <ShoppingCartOutlined sx={{ fontSize: 35, color: '#ED3237' }} />
+                <ShoppingCartOutlined sx={{ fontSize: 30, color: '#ED3237' }} />
               </ListItemIcon>
-              <ListItemText sx={{ color: '#ED3237' }} primary="Carrinho" />
+              <ListItemText
+                sx={{ color: '#ED3237', marginLeft: '-15px' }}
+                primary="Carrinho"
+              />
             </ListItemButton>
             <Divider
               sx={{

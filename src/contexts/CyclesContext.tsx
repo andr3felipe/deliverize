@@ -26,6 +26,8 @@ export interface IProduct {
 }
 
 interface CyclesContextType {
+  isMenuOpen: boolean
+  toggleMenu: () => void
   ingredientsState: Item[]
   setIngredientsState: React.Dispatch<React.SetStateAction<Item[]>>
   products: IProduct[]
@@ -67,9 +69,18 @@ export function CyclesContextProvider({
   // Search Input
   const [search, setSearch] = useState<string>('')
 
+  // Menu
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
+
+  function toggleMenu() {
+    setIsMenuOpen((state) => !state)
+  }
+
   return (
     <CyclesContext.Provider
       value={{
+        toggleMenu,
+        isMenuOpen,
         products,
         setProducts,
         ingredientsState,
