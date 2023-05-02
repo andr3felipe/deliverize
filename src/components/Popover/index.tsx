@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { CardBody, CardHead, PopoverContainer } from './styles'
+import { CardBody, CardHead, PopoverContainer, Signal } from './styles'
 import { CyclesContext, Item } from '../../contexts/CyclesContext'
 
 interface PopoverProps {
@@ -21,6 +21,7 @@ export const Popover = ({
   return (
     <PopoverContainer variant={showPopover}>
       <div>
+        <Signal></Signal>
         <p>Adicionado com Sucesso</p>
       </div>
       <CardHead>

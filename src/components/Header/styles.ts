@@ -111,6 +111,12 @@ export const NavigationContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 10px;
+
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   div {
@@ -128,12 +134,6 @@ export const NavigationContainer = styled.div`
     background-color: ${(props) => props.theme.secondary};
     font-size: 0.625rem;
     letter-spacing: 0.2px;
-  }
-
-  @media (max-width: 920px) {
-    div {
-      display: none;
-    }
   }
 `
 
