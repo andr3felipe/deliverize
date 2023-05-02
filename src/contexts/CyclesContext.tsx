@@ -43,7 +43,7 @@ export interface Cart {
 }
 
 interface CyclesContextType {
-  removeItemFromCart: () => void
+  removeItemFromCart: (id: string) => void
   setPopOverState: React.Dispatch<React.SetStateAction<Cart>>
   popOverState: Cart
   showPopover: boolean
