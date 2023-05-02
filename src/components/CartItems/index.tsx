@@ -27,7 +27,6 @@ export const CartItems = ({ title, id, ingredients, count, total }: Cart) => {
           <CartBody>
             <p>Ingredients:</p>
             <ul>
-              <li>1 Carne 250gr</li>
               {ingredients.map((item) => {
                 return (
                   <li key={item.nm_item}>
@@ -35,7 +34,6 @@ export const CartItems = ({ title, id, ingredients, count, total }: Cart) => {
                   </li>
                 )
               })}
-              <li>Molho Especial</li>
             </ul>
           </CartBody>
           <CartFooter>

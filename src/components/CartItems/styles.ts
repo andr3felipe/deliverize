@@ -16,13 +16,12 @@ export const CartAlign = styled.div`
   flex-direction: column;
   gap: 6px;
   align-items: center;
-  margin: 4px;
-  padding: 16px;
+  margin: 8px 3px;
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 3px;
 
   border-radius: 8px;
   background-color: white;
-  padding: 8px 8px 14px 8px;
+  padding: 12px 16px 18px 16px;
 
   border-radius: 30px;
 `
