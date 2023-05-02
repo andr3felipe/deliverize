@@ -13,15 +13,31 @@ import deliverizeBox from '../../assets/deliverizeBox.png'
 import deliverize from '../../assets/deliverize.png'
 import { NavLink } from 'react-router-dom'
 import { CyclesContext } from '../../contexts/CyclesContext'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { SearchInput } from '../SearchInput'
 
 import { Menu } from '@mui/icons-material'
 import { Popover } from '../Popover'
 
 export function Header() {
-  const { cart, toggleMenu, toggleCart, popOverState } =
+  const { cart, toggleMenu, toggleCart, popOverState, setCart } =
     useContext(CyclesContext)
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      const object = localStorage.getItem('@deliverize-1.0.0')
+
+      if (object) {
+        const parsed = JSON.parse(object)
+
+        setCart(parsed)
+      }
+    }
+
+    if (cart.length) {
+      localStorage.setItem('@deliverize-1.0.0', JSON.stringify(cart))
+    }
+  }, [cart, setCart])
 
   return (
     <HeaderContainer>

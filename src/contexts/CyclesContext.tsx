@@ -106,6 +106,9 @@ export function CyclesContextProvider({
   const [showPopover, setShowPopOver] = useState<boolean>(false)
 
   function removeItemFromCart(id: string) {
+    if (cart.length === 1) {
+      localStorage.removeItem('@deliverize-1.0.0')
+    }
     setCart((state) => state.filter((item) => item.id !== id))
   }
 
