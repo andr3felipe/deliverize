@@ -33,9 +33,11 @@ export const Popover = ({
           <strong>Ingredients:</strong>
         </p>
         <ul>
+          <li>1 Carne 250gr</li>
           {ingredients?.map((item) => {
             return <li key={item.id}>{`${item.count}x ${item.nm_item}`}</li>
           })}
+          <li>Molho Especial</li>
         </ul>
         <p>{cutlery === true ? 'Talher: Sim.' : 'Talher: Não.'}</p>
       </CardBody>
