@@ -24,8 +24,7 @@ export const CartAlign = styled.div`
   background-color: white;
   padding: 8px 8px 14px 8px;
 
-  border-radius: ${(props) =>
-    props.variant === 'first' ? '30px 30px 0 0' : '30px'};
+  border-radius: 30px;
 `
 
 export const CartHead = styled.div`

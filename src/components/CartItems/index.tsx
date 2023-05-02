@@ -11,15 +11,7 @@ import { useContext } from 'react'
 
 import { Cart, CyclesContext } from '../../contexts/CyclesContext'
 
-export const CartItems = ({
-  title,
-  id,
-  ingredients,
-  count,
-  cutlery,
-  variant,
-  total,
-}: Cart) => {
+export const CartItems = ({ title, id, ingredients, count, total }: Cart) => {
   const { removeItemFromCart } = useContext(CyclesContext)
 
   return (

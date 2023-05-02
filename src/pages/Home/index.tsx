@@ -37,7 +37,6 @@ export function Home() {
                 desc={item.description}
                 price={item.vl_price}
                 discountPrice={item.vl_discount}
-                image={item.url_image}
                 ingredients={item.ingredients}
               />
             )
@@ -51,7 +50,6 @@ export function Home() {
                 desc={item.description}
                 price={item.vl_price}
                 discountPrice={item.vl_discount}
-                image={item.url_image}
                 ingredients={item.ingredients}
               />
             )

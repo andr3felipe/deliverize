@@ -10,7 +10,6 @@ interface ProductProps {
   desc: string
   price: number
   discountPrice: number
-  image: string
   ingredients: Ingredient[]
 }
 
@@ -20,7 +19,6 @@ export function Product({
   desc,
   price,
   discountPrice,
-  image,
   ingredients,
 }: ProductProps) {
   return (

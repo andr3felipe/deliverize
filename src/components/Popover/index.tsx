@@ -5,7 +5,6 @@ import { CyclesContext, Item } from '../../contexts/CyclesContext'
 interface PopoverProps {
   title: string
   ingredients: Item[]
-  variant?: boolean
   count: number
   cutlery: boolean
 }

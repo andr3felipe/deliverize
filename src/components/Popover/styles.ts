@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const PopoverContainer = styled.div`
+type Popover = {
+  variant: boolean
+}
+
+export const PopoverContainer = styled.div<Popover>`
   display: flex;
   align-items: flex-start;
   justify-content: center;
