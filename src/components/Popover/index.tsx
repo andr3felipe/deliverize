@@ -1,10 +1,8 @@
 import { CardBody, CardHead, PopoverContainer } from './styles'
 
-interface Ingredient {}
-
 interface PopoverProps {
   title: string
-  ingredients: []
+  ingredients: string[]
 }
 
 export const Popover = ({ title, ingredients }: PopoverProps) => {

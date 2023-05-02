@@ -14,7 +14,6 @@ export const PopoverContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 3px;
 
   @media (min-width: 1290px) {
-    right: 3.5%;
   }
 
   @media (max-width: 800px) {

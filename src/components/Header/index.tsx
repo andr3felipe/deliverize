@@ -20,7 +20,7 @@ import { Menu } from '@mui/icons-material'
 import { Popover } from '../Popover'
 
 export function Header() {
-  const { cart, toggleMenu } = useContext(CyclesContext)
+  const { cart, toggleMenu, toggleCart } = useContext(CyclesContext)
 
   return (
     <HeaderContainer>
@@ -48,7 +48,7 @@ export function Header() {
           <img src={loginIcon} alt="" />
           <span>Entrar</span>
         </NavLink>
-        <NavLink to="">
+        <NavLink onClick={toggleCart} to="">
           <img src={cartIcon} alt="" />
           <span>Carrinho</span>
           {cart.length > 0 ? <div>{cart.length}</div> : null}

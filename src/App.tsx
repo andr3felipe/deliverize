@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Router } from './Router'
 import { CyclesContextProvider } from './contexts/CyclesContext'
 import { Menu } from './components/Menu'
+import { Cart } from './components/Cart'
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         <BrowserRouter>
           <CyclesContextProvider>
             <Menu>
-              <Router />
+              <Cart>
+                <Router />
+              </Cart>
             </Menu>
           </CyclesContextProvider>
         </BrowserRouter>

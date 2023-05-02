@@ -21,7 +21,7 @@ interface MenuProps {
 }
 
 export const Menu = ({ children }: MenuProps) => {
-  const { isMenuOpen, toggleMenu } = useContext(CyclesContext)
+  const { isMenuOpen, toggleMenu, toggleCart } = useContext(CyclesContext)
 
   return (
     <>
@@ -34,7 +34,7 @@ export const Menu = ({ children }: MenuProps) => {
               flexDirection: 'column',
             }}
           >
-            <ListItemButton>
+            <ListItemButton onClick={toggleMenu}>
               <ListItemIcon>
                 <HomeOutlined sx={{ fontSize: 30, color: '#ED3237' }} />
               </ListItemIcon>
@@ -49,7 +49,7 @@ export const Menu = ({ children }: MenuProps) => {
                 borderRadius: '20px',
               }}
             />
-            <ListItemButton>
+            <ListItemButton onClick={toggleMenu}>
               <ListItemIcon>
                 <AccountCircleOutlined
                   sx={{ fontSize: 30, color: '#ED3237' }}
@@ -66,7 +66,12 @@ export const Menu = ({ children }: MenuProps) => {
                 borderRadius: '20px',
               }}
             />
-            <ListItemButton>
+            <ListItemButton
+              onClick={() => {
+                toggleCart()
+                toggleMenu()
+              }}
+            >
               <ListItemIcon>
                 <ShoppingCartOutlined sx={{ fontSize: 30, color: '#ED3237' }} />
               </ListItemIcon>

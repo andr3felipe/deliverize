@@ -9,6 +9,7 @@ import {
   IngredientsMenuContainer,
 } from './style'
 import { useContext, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 interface IngredientsMenuProps {
   ingredients: Ingredient[]
@@ -56,19 +57,16 @@ export function IngredientsMenu({
     const getProduct = products.filter((item) => item.id === productId)
     const getIngredients = ingredientsState.filter((item) => item.count > 0)
 
+    const createId = uuidv4()
+
     const object: any = {
+      id: createId,
       title: getProduct[0].nm_product,
       ingredients: getIngredients,
       total,
       cutlery,
       count,
     }
-
-    if (object.title === 'Oferta Picanha Cheddar Bacon') {
-      object.ingredients.meat = '1 Carne 250gr'
-      object.ingredients.specialSauce = 'Molho Especial'
-    }
-    console.log(object)
 
     setCart((state) => [...state, object])
   }

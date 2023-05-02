@@ -25,15 +25,34 @@ export interface IProduct {
   ingredients: Ingredient[]
 }
 
+export interface CartIngredient {
+  id: number
+  count: number
+  nm_item: string
+  vl_item: number
+}
+
+export interface Cart {
+  id: string
+  title: string
+  count: number
+  cutlery: boolean
+  total: number
+  variant?: string
+  ingredients: CartIngredient[]
+}
+
 interface CyclesContextType {
   isMenuOpen: boolean
   toggleMenu: () => void
+  isCartOpen: boolean
+  toggleCart: () => void
   ingredientsState: Item[]
   setIngredientsState: React.Dispatch<React.SetStateAction<Item[]>>
   products: IProduct[]
   setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>
-  cart: IProduct[]
-  setCart: React.Dispatch<React.SetStateAction<IProduct[]>>
+  cart: Cart[]
+  setCart: React.Dispatch<React.SetStateAction<Cart[]>>
   count: number
   setCount: React.Dispatch<React.SetStateAction<number>>
   search: string
@@ -61,7 +80,7 @@ export function CyclesContextProvider({
   const [cutlery, setCutlery] = useState<boolean>(false)
 
   // carrinho
-  const [cart, setCart] = useState<IProduct[]>([])
+  const [cart, setCart] = useState<Cart[]>([])
 
   // quantidade de items (hamburger) para adicionar ao carrinho
   const [count, setCount] = useState<number>(1)
@@ -72,13 +91,22 @@ export function CyclesContextProvider({
   // Menu
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
+  // Cart
+  const [isCartOpen, setIsCartOpen] = useState<boolean>(false)
+
   function toggleMenu() {
     setIsMenuOpen((state) => !state)
+  }
+
+  function toggleCart() {
+    setIsCartOpen((state) => !state)
   }
 
   return (
     <CyclesContext.Provider
       value={{
+        toggleCart,
+        isCartOpen,
         toggleMenu,
         isMenuOpen,
         products,
