@@ -17,6 +17,10 @@
 ## GIF:
 <img src="src/assets/gif/Deliverize.gif"/>
 
+### REPONSIVIDADE / RESPONSIVITY:
+<img src="src/assets/screens/Deliverize-screens.png"/>
+<img src="src/assets/screens/deliverize-screens-1280px.png"/>
+
 # ENGLISH
 
 ### DESCRIPTION:
