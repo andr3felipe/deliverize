@@ -36,7 +36,6 @@
 
 ## HOW TO RUN:
 
-### How to clone the project:
 #### Open your terminal and execute the following commands:
 ```
 git clone https://github.com/andr3felipe/teamsoft-front-end.git
@@ -63,7 +62,6 @@ npm run dev
 
 ## COMO INICIAR O PROJETO:
 
-### Como clonar o projeto:
 #### Abra o terminal e execute os seguintes comandos:
 ```
 git clone https://github.com/andr3felipe/teamsoft-front-end.git
