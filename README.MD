@@ -14,6 +14,9 @@
 * [PROJETO ONLINE:](#LIVE-DEMO)
 <br>
 
+## GIF:
+<img src="src/assets/gif/Deliverize.gif"/>
+
 # ENGLISH
 
 ### DESCRIPTION:
