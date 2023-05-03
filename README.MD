@@ -16,10 +16,13 @@
 
 ## GIF:
 <img src="src/assets/gif/Deliverize.gif"/>
+<br>
+<br>
 
 ### REPONSIVIDADE / RESPONSIVITY:
 <img src="src/assets/screens/Deliverize-screens.png"/>
 <img src="src/assets/screens/deliverize-screens-1280px.png"/>
+<br>
 
 # ENGLISH
 
@@ -74,6 +77,6 @@ npm i
 npm run dev
 ```
 #### LIVE DEMO:
-<a href="https://candid-cheesecake-ae9a80.netlify.app" target="_blank" >Develirize</a>
+<a href="https://candid-cheesecake-ae9a80.netlify.app" target="_blank" >Deliverize</a>
 
 
